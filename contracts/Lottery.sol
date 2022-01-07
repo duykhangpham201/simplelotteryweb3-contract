@@ -7,13 +7,11 @@ contract Lottery is Ownable {
     uint minimum;
     address[] players;
 
-    constructor(uint _minimum) {
-        //conversion from wei to ether
-        minimum = _minimum*1000000000000000000;
+    constructor() {
     }
 
     function enterLottery() public payable {
-        require(msg.value >= minimum);
+        require(msg.value >= 0.01 ether);
         players.push(msg.sender);
     }
 
