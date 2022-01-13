@@ -3,12 +3,8 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Lottery is Ownable {
-    uint minimum;
+contract Lottery is Ownable { 
     address[] players;
-
-    constructor() {
-    }
 
     function enterLottery() public payable {
         require(msg.value >= 0.01 ether);
@@ -28,6 +24,4 @@ contract Lottery is Ownable {
     function getPlayers() public view returns (address[] memory) {
         return players;
     }
-
-
 }
